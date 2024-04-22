@@ -6,46 +6,42 @@ interface Props {
 const { title } = Astro.props;
 ---
 
-<!doctype html>
-<html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="description" content="Astro description" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="generator" content={Astro.generator} />
-		<title>{title}</title>
-	</head>
-	<body>
-		<slot />
-	</body>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Botón de Suma</title>
+  <style>
+    /* Estilos opcionales para el botón */
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+<!-- Elemento para mostrar el valor actual y el botón para incrementar -->
+<div>
+  <p>Valor actual: <span id="valor">5</span></p>
+  <button onclick="sumarCincuenta()">Incrementar en 50</button>
+</div>
+
+<script>
+  // Función para incrementar el valor en 50 cada vez que se hace clic en el botón
+  function sumarCincuenta() {
+    // Obtener el valor actual
+    var valorActual = parseInt(document.getElementById('valor').textContent);
+    
+    // Incrementar en 50
+    var nuevoValor = valorActual + 50;
+    
+    // Actualizar el valor mostrado en la página
+    document.getElementById('valor').textContent = nuevoValor;
+  }
+</script>
+
+</body>
 </html>
-<style is:global>
-	:root {
-		--accent: 136, 58, 234;
-		--accent-light: 224, 204, 250;
-		--accent-dark: 49, 10, 101;
-		--accent-gradient: linear-gradient(
-			45deg,
-			rgb(var(--accent)),
-			rgb(var(--accent-light)) 30%,
-			white 60%
-		);
-	}
-	html {
-		font-family: system-ui, sans-serif;
-		background: #13151a;
-		background-size: 224px;
-	}
-	code {
-		font-family:
-			Menlo,
-			Monaco,
-			Lucida Console,
-			Liberation Mono,
-			DejaVu Sans Mono,
-			Bitstream Vera Sans Mono,
-			Courier New,
-			monospace;
-	}
-</style>
