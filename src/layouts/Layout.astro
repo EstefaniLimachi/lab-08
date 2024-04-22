@@ -1,47 +1,28 @@
 ---
-interface Props {
-	title: string;
+const buyList = [
+  'Controller',
+  'Bread',
+  'Water',
+  'Notebook',
+  'Math Book',
+  'Choco Bar',
+  'Milk'
+];
+
+function ListaDeCompra() {
+  return (
+    <div>
+      <h2>Lista de Compra</h2>
+      <ul>
+        {buyList.map((item, index) => (
+          <li key={index}>{item}</li>
+        ))}
+      </ul>
+    </div>
+  );
 }
 
-const { title } = Astro.props;
----
-
-<!DOCTYPE html>
-<html lang="es">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Botón de Suma</title>
-  <style>
-    /* Estilos opcionales para el botón */
-    button {
-      padding: 10px 20px;
-      font-size: 16px;
-      cursor: pointer;
-    }
-  </style>
-</head>
-<body>
-
-<!-- Elemento para mostrar el valor actual y el botón para incrementar -->
-<div>
-  <p>Valor actual: <span id="valor">5</span></p>
-  <button onclick="sumarCincuenta()">Incrementar en 50</button>
-</div>
-
-<script>
-  // Función para incrementar el valor en 50 cada vez que se hace clic en el botón
-  function sumarCincuenta() {
-    // Obtener el valor actual
-    var valorActual = parseInt(document.getElementById('valor').textContent);
-    
-    // Incrementar en 50
-    var nuevoValor = valorActual + 50;
-    
-    // Actualizar el valor mostrado en la página
-    document.getElementById('valor').textContent = nuevoValor;
-  }
-</script>
-
-</body>
-</html>
+// Uso del componente ListaDeCompra
+function App() {
+  return <ListaDeCompra />;
+}

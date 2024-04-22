@@ -1,6 +1,17 @@
 ---
-import Button from '../components/Button.astro';
+import ShoppingList from '../components/ShoppingList.astro';
+
+const buyList = [
+    'Controller',
+    'Bread',
+    'Water',
+    'Notebook',
+    'Math Book',
+    'Choco Bar',
+    'Milk'
+]
 ---
-<main>
-    <Button/>
-</main>
+
+<h1>Compras de la semana</h1>
+
+<ShoppingList items={buyList} />
